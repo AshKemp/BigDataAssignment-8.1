@@ -1,4 +1,8 @@
-PIG Script to implement wordcount.
+#Open the pig in local mode
+
+pig -x local
+
+# Use below PIG Script to implement wordcount.
 
 lines = LOAD 'home/acadgild/hadoop/word-count.txt' USING PigStorage AS (line:chararray);
 words = FOREACH lines GENERATE FLATTEN(TOKENIZE(line)) as word;
